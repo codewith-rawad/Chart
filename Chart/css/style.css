@@ -1,0 +1,139 @@
+
+/* I have added several features that I created myself and are not pre-built,
+ as I have been practicing them for a long time. 
+ These are additional elements where the output is clear,
+  but they are included solely for aesthetic purposes. */
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&display=swap");
+
+body{
+height: 100vh;
+width: 100vw;
+background-image: url("../images+icon/background.jpeg");
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+overflow: hidden;
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+
+
+}
+body::after{
+	z-index: -1;
+	top: 0;
+	left: 0;
+	position: absolute;
+	content: "";
+background-color: rgba(0,0,0,0.8);
+	width: 100%;
+	height: 100%;
+}
+.container{
+
+	top: 10%;
+	width: 50%;
+	height: 50%;
+perspective: 1000px;
+/* background-color: aqua; */
+position: relative;
+
+}
+
+.back,.front{
+	transform-style: preserve-3d;
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden;
+transition: transform 1s;
+-webkit-box-reflect: below 10px linear-gradient(transparent, transparent, rgba(0,0,0,0.2));
+}
+
+.back{
+	transform: rotateY(-180deg);
+	/* background-color: blueviolet; */
+}
+
+.container:hover .front{
+	transform: rotateY(180deg);
+
+}
+.container:hover .back{
+transform: rotateY(0deg);
+
+}
+ h1{
+	font-family: "Poppins", sans-serif;
+	position: absolute;
+	top: 1%;
+	color: white;
+	font-size: 100px;
+ }
+h1:nth-child(2){
+	color: black;
+
+ }
+ h1:nth-child(2){
+	color: rgb(255, 70, 104);
+
+	animation: move 2.5s infinite;
+}
+@keyframes move {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 45%,
+      15% 44%,
+      32% 50%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      16% 65%,
+      34% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
+  }
+}
+
+
+
+
+
+
+
+.axis path,
+.axis line {
+	fill: none;
+	stroke: #f9f6f6;
+	shape-rendering: crispEdges;
+}
+
+.axis text {
+	font-family: sans-serif;
+	font-size: 11px;
+	fill: white;
+}
+
+.bar {
+	fill: rgb(160, 180, 70);
+	shape-rendering: crispEdges;
+}
